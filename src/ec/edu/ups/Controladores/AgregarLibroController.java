@@ -33,7 +33,22 @@ public class AgregarLibroController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		String url = null;
+		try {
+			libro.setNombre(request.getParameter("nombre"));
+			libro.setISBN(request.getParameter("ISBN"));
+			libro.setNumPaginas(Integer.parseInt(request.getParameter("num")));
+			
+			libroDao.create(libro);
+			System.out.println("hecho !");
+			libro = null;
+			libroDao =  DAOFactory.getDaoFactory().getLibroDAO();
+			url = "/JSPs/index.jsp";
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 	/**
