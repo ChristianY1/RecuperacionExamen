@@ -36,6 +36,7 @@ public class Capitulo implements Serializable {
 
 	public Capitulo(int numero, String titulo, Libro libro, Autor autor) {
 		super();
+		
 		this.numero = numero;
 		this.titulo = titulo;
 		this.libro = libro;
@@ -103,43 +104,16 @@ public class Capitulo implements Serializable {
 	}
 
 
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + codigo;
-		return result;
-	}
-
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Capitulo other = (Capitulo) obj;
-		if (codigo != other.codigo)
-			return false;
-		return true;
-	}
-
-	
-	
-
-	
-
+//
 //	@Override
 //	public String toString() {
-//		return "Capitulo [codigo=" + codigo + ", nombre=" + nombre + ", titulo=" + titulo + ", libro=" + libro
+//		return "Capitulo [codigo=" + codigo + ", numero=" + numero + ", titulo=" + titulo + ", libro=" + libro
 //				+ ", autor=" + autor + "]";
 //	}
+	
 
 
+	
 	
 
    

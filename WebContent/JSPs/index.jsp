@@ -9,6 +9,7 @@
 <title>Libros</title>
 </head>
 <body>
+
 	<form action="/Recuperacion2/AgregarLibroController" >
         <label>Registre su libro</label> <br>
         <br>
@@ -21,8 +22,8 @@
         <input type="text" name = "num"> <br>
         <br>
         <label>Capitulo</label> <br>
-        <label>Codigo de autor</label>
         
+        <label>Codigo de autor</label>
         <input type="text" name="cautor"> <br>
 
        
@@ -33,5 +34,10 @@
 
         <button type="submit">Registrar</button>
     </form>
+    <a href = "/Recuperacion2/JSPs/vista2.jsp">ver lista</a>
+    <br/>
+    <label>1.Romero Tullet</label><br/>
+    <label>2.Rick Jhonson</label><br/>
+    <label>3.Gabriel Garcia Marquez</label>
 </body>
 </html>

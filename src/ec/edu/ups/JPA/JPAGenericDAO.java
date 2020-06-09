@@ -12,6 +12,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import ec.edu.ups.DAO.GenericDAO;
+import ec.edu.ups.Entidades.Autor;
+import ec.edu.ups.Entidades.Capitulo;
 
 
 
@@ -134,6 +136,53 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID> {
 		}
 
 	    }
+
+
+	@Override
+	public Autor buscarAutor(int id) {
+		// TODO Auto-generated method stub
+		Autor autor = new Autor();
+		Query query2 = em.createQuery("SELECT a from Autor a WHERE a.codigo = " + id + "");
+		List<Autor> list = (List<Autor>) query2.getResultList();
+		try {
+			for (Autor e : list) {
+				autor.setCodigo(list.get(0).getCodigo());
+				autor.setNombre(list.get(0).getNombre());
+				autor.setNacionalidad(list.get(0).getNacionalidad());
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("no hay autor");
+		}
+		return autor;
+	}
+
+
+	@Override
+	public List<Capitulo> buscarNB(String nombre) {
+		EntityManager em = Persistence.createEntityManagerFactory("jpa").createEntityManager();
+		String jpql = "SELECT C FROM Capitulo c, Autor a WHERE a.codigo = c.codigo AND a.nombre = '"+ nombre +"'";
+		Capitulo cap1 = new Capitulo();
+		List<Capitulo> res = (List<Capitulo>) em.createQuery(jpql, Capitulo.class).getResultList();	
+		System.out.println(res);
+		return res;
+	}
+
+
+	@Override
+	public List<Capitulo> buscarTC(String capitulo) {
+		// TODO Auto-generated method stub
+		EntityManager em = Persistence.createEntityManagerFactory("jpa").createEntityManager();
+		String jpql = "SELECT C FROM Capitulo c, Autor a WHERE a.codigo = c.codigo AND c.titulo = '"+ capitulo +"'";
+		Capitulo cap1 = new Capitulo();
+		List<Capitulo> res = (List<Capitulo>) em.createQuery(jpql, Capitulo.class).getResultList();	
+		
+		return res;
+	}
+
+
+	
+	
 	
 
 	

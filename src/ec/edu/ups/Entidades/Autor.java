@@ -17,6 +17,7 @@ public class Autor implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigo;
+	//@Column(unique=true)
 	private String nombre;
 	private String nacionalidad;
 	@OneToOne(mappedBy = "autor")
@@ -64,14 +65,7 @@ public class Autor implements Serializable {
 	}
 
 
-	public Capitulo getCapitulo() {
-		return capitulo;
-	}
-
-
-	public void setCapitulo(Capitulo capitulo) {
-		this.capitulo = capitulo;
-	}
+	
 
 
 	@Override
@@ -97,18 +91,20 @@ public class Autor implements Serializable {
 		return true;
 	}
 
-	
-	
-
-
-	
-
 
 //	@Override
 //	public String toString() {
-//		return "Autor [codigo=" + codigo + ", nombre=" + nombre + ", nacionalidad=" + nacionalidad + ", capitulo="
-//				+ capitulo + "]";
+//		return "Autor [codigo=" + codigo + ", nombre=" + nombre + ", nacionalidad=" + nacionalidad + "]";
 //	}
-//   
+
+	
+	
+	
+
+	
+
+
+	
+   
    
 }
