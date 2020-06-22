@@ -5,6 +5,7 @@
 		<class>ec.edu.ups.Entidades.Autor</class>
 		<class>ec.edu.ups.Entidades.Libro</class>
 		<class>ec.edu.ups.Entidades.Capitulo</class>
+		
 
 		
 		<properties>
